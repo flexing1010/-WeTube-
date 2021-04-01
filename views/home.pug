@@ -1,4 +1,9 @@
 extends layouts/main
 
-block content 
-    p Hello!!!
+block content
+    //- 
+        item is just a name of variable that's given here
+    .videos 
+        each item in videos 
+            h1= item.title
+            p= item.description
