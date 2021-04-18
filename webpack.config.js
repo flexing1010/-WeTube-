@@ -1,3 +1,4 @@
+const webpack = require("webpack");
 const path = require("path");
 
 const autoprefixer = require("autoprefixer");
@@ -45,7 +46,20 @@ const config = {
     filename: "[name].js",
     path: path.join(__dirname, "static"),
   },
-  plugins: [new MiniCssExtract({ filename: "styles.css" })],
+  resolve: {
+    fallback: {
+      fs: false,
+    },
+    alias: {
+      process: "process/browser",
+    },
+  },
+  plugins: [
+    new MiniCssExtract({ filename: "styles.css" }),
+    new webpack.ProvidePlugin({
+      process: "process/browser",
+    }),
+  ],
 };
 
 module.exports = config;
