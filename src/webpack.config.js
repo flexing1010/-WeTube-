@@ -44,7 +44,10 @@ const config = {
     path: path.join(__dirname, "static"),
     filename: "[name].js",
   },
-
+  node: {
+    fs: "empty",
+    net: "empty",
+  },
   plugins: [
     new MiniCssExtract({ filename: "styles.css" }),
     new webpack.ProvidePlugin({

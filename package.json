@@ -35,13 +35,11 @@
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^6.1.0",
     "path": "^0.12.7",
-    "postcss-loader": "^5.2.0",
     "process": "^0.11.10",
     "pug": "^3.0.2",
     "sass": "^1.32.8",
-    "sass-loader": "^11.0.1",
     "webpack": "^4.44.2",
-    "webpack-cli": "^3.1.2"
+    "webpack-cli": "^4.2.0"
   },
   "scripts": {
     "dev:server": "nodemon --exec babel-node src/init.js --ignore '.scss' --ignore 'static'",
@@ -62,6 +60,8 @@
     "eslint-plugin-prettier": "^3.3.1",
     "mini-css-extract-plugin": "^1.4.0",
     "nodemon": "^2.0.7",
-    "prettier": "^2.2.1"
+    "postcss-loader": "^4.0.4",
+    "prettier": "^2.2.1",
+    "sass-loader": "^10.0.5"
   }
 }
