@@ -39,12 +39,14 @@
     "process": "^0.11.10",
     "pug": "^3.0.2",
     "sass": "^1.32.8",
-    "sass-loader": "^11.0.1"
+    "sass-loader": "^11.0.1",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.1.2"
   },
   "scripts": {
     "dev:server": "nodemon --exec babel-node src/init.js --ignore '.scss' --ignore 'static'",
-    "dev:assets": "cd src && WEBPACK_ENV=development webpack -w",
-    "build:assets": "cd src && WEBPACK_ENV=production webpack",
+    "dev:assets": "cd src cross-env && WEBPACK_ENV=development webpack -w",
+    "build:assets": "cd src cross-env && WEBPACK_ENV=production webpack",
     "build:server": "babel src --out-dir build --ignore src/assets --ignore src/static --ignore src/webpack.config.js",
     "copyAll": "cp -R src/static build && cp -R src/views build",
     "build": "npm run build:server && npm run build:assets && npm run copyAll ",
@@ -60,8 +62,6 @@
     "eslint-plugin-prettier": "^3.3.1",
     "mini-css-extract-plugin": "^1.4.0",
     "nodemon": "^2.0.7",
-    "prettier": "^2.2.1",
-    "webpack": "^4.44.2",
-    "webpack-cli": "^4.6.0"
+    "prettier": "^2.2.1"
   }
 }

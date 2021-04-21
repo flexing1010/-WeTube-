@@ -32,7 +32,7 @@ const config = {
             options: {
               postcssOptions: {
                 plugins: [
-                  ["autoprefixer", { overrideBrowserslist: "cover 99.5%" }],
+                  [autoprefixer, { overrideBrowserslist: "cover 99.5%" }],
                 ],
               },
             },
@@ -47,9 +47,6 @@ const config = {
     path: path.join(__dirname, "static"),
   },
   resolve: {
-    fallback: {
-      fs: false,
-    },
     alias: {
       process: "process/browser",
     },
