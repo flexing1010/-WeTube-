@@ -31,9 +31,7 @@ const config = {
             loader: "postcss-loader",
             options: {
               postcssOptions: {
-                plugins: [
-                  [autoprefixer, { overrideBrowserslist: "cover 99.5%" }],
-                ],
+                plugins: [[autoprefixer, { browsers: "cover 99.5%" }]],
               },
             },
           },
@@ -43,14 +41,10 @@ const config = {
     ],
   },
   output: {
-    filename: "[name].js",
     path: path.join(__dirname, "static"),
+    filename: "[name].js",
   },
-  resolve: {
-    alias: {
-      process: "process/browser",
-    },
-  },
+
   plugins: [
     new MiniCssExtract({ filename: "styles.css" }),
     new webpack.ProvidePlugin({
