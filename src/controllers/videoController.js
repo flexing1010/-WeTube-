@@ -38,10 +38,12 @@ export const getUpload = (req, res) =>
 export const postUpload = async (req, res) => {
   const {
     body: { title, description },
-    file: { path },
+    //multer가 서버에 뭔가를 저장할때는 req.file.path를 받고
+    //외부에 저장할때는 req/file.location을 받는듯?
+    file: { location },
   } = req;
   const newVideo = await Video.create({
-    fileUrl: path,
+    fileUrl: location,
     title,
     description,
     creator: req.user.id,
