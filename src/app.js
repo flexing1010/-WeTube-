@@ -15,7 +15,7 @@ import globalRouter from "./routers/globalRouter";
 import apiRouter from "./routers/apiRouter";
 
 import "./passport";
-import bodyParser from "body-parser";
+
 const app = express();
 
 const CokieStore = MongoStore(session);

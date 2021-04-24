@@ -1,5 +1,4 @@
 import axios from "axios";
-import Comment from "../../models/Comment";
 import delComment from "./deleteComment";
 
 const addCommentForm = document.getElementById("jsAddComment");

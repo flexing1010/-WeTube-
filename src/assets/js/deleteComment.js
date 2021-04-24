@@ -1,7 +1,4 @@
-import { render } from "pug";
 import axios from "axios";
-import Comment from "../../models/Comment";
-import { deleteVideo } from "../../controllers/videoController";
 
 const deleteComment = document.querySelectorAll("#jsDeleteBtn");
 const addCommentForm = document.getElementById("jsAddComment");

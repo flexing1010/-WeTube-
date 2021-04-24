@@ -1,20 +1,20 @@
-const webpack = require("webpack");
 const path = require("path");
-
 const autoprefixer = require("autoprefixer");
+const MiniCssExtract = require("mini-css-extract-plugin");
 
 const MODE = process.env.WEBPACK_ENV;
 const ENTRY_FILE = path.resolve(__dirname, "assets", "js", "main.js");
-const MiniCssExtract = require("mini-css-extract-plugin");
+const OUTPUT_DIR = path.join(__dirname, "static");
 
 const config = {
   entry: ["@babel/polyfill", ENTRY_FILE],
-  devtool: "source-map",
+  devtool: "cheap-source-map",
   mode: MODE,
+  plugins: [new MiniCssExtract({ filename: "[name].css" })],
   module: {
     rules: [
       {
-        test: /\.(js)$/,
+        test: /\.js$/,
         use: [
           {
             loader: "babel-loader",
@@ -23,10 +23,10 @@ const config = {
       },
       {
         //look for scss with test
-        test: /\.(scss)$/,
+        test: /\.scss$/,
         use: [
-          { loader: MiniCssExtract.loader },
-          { loader: "css-loader" },
+          MiniCssExtract.loader,
+          "css-loader",
           {
             loader: "postcss-loader",
             options: {
@@ -41,19 +41,13 @@ const config = {
     ],
   },
   output: {
-    path: path.join(__dirname, "static"),
+    path: OUTPUT_DIR,
     filename: "[name].js",
   },
   node: {
     fs: "empty",
     net: "empty",
   },
-  plugins: [
-    new MiniCssExtract({ filename: "styles.css" }),
-    new webpack.ProvidePlugin({
-      process: "process/browser",
-    }),
-  ],
 };
 
 module.exports = config;
